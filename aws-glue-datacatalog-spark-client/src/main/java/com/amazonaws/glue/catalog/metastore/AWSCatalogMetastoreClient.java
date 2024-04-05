@@ -745,12 +745,9 @@ public class AWSCatalogMetastoreClient implements IMetaStoreClient {
           int j = Math.min(i + BATCH_DELETE_PARTITIONS_PAGE_SIZE, numOfPartitionsToDelete);
           final List<Partition> partitionsOnePage = partitionsToDelete.subList(i, j);
 
-          batchDeletePartitionsFutures.add(BATCH_DELETE_PARTITIONS_THREAD_POOL.submit(new Callable<BatchDeletePartitionsHelper>() {
-              @Override
-              public BatchDeletePartitionsHelper call() throws Exception {
-                  return new BatchDeletePartitionsHelper(glueClient, dbName, tableName, catalogId, partitionsOnePage).deletePartitions();
-              }
-          }));
+          batchDeletePartitionsFutures.add(BATCH_DELETE_PARTITIONS_THREAD_POOL.submit(
+                  () -> new BatchDeletePartitionsHelper(glueClient, dbName, tableName, catalogId, partitionsOnePage)
+                          .deletePartitions()));
       }
 
       TException tException = null;

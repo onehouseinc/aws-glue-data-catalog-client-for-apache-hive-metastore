@@ -13,6 +13,7 @@ import com.amazonaws.services.glue.model.Partition;
 import com.amazonaws.services.glue.model.PartitionError;
 import com.amazonaws.services.glue.AWSGlue;
 
+import org.apache.hadoop.hive.metastore.api.MetaException;
 import org.apache.log4j.Logger;
 import org.apache.thrift.TException;
 
@@ -34,7 +35,7 @@ public final class BatchDeletePartitionsHelper {
   private CatalogToHiveConverter catalogToHiveConverter;
 
   public BatchDeletePartitionsHelper(AWSGlue client, String namespaceName, String tableName,
-                                     String catalogId, List<Partition> partitions) {
+                                     String catalogId, List<Partition> partitions) throws MetaException {
     this.client = client;
     this.namespaceName = namespaceName;
     this.tableName = tableName;

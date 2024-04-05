@@ -19,7 +19,6 @@ import static org.powermock.api.mockito.PowerMockito.when;
 public class CatalogToHiveConverterFactoryTest {
 
   private static final String HIVE_1_2_VERSION = "1.2.1";
-  private static final String HIVE_3_VERSION = "3.1.3";
 
   @Before
   public void setup() throws ClassNotFoundException {
@@ -32,16 +31,9 @@ public class CatalogToHiveConverterFactoryTest {
   }
 
   @Test
-  public void testGetBaseCatalogToHiveConverter() {
+  public void testGetBaseCatalogToHiveConverter() throws Exception {
     when(HiveVersionInfo.getShortVersion()).thenReturn(HIVE_1_2_VERSION);
     CatalogToHiveConverter catalogToHiveConverter = CatalogToHiveConverterFactory.getCatalogToHiveConverter();
     assertTrue(BaseCatalogToHiveConverter.class.isInstance(catalogToHiveConverter));
-  }
-
-  @Test
-  public void testGetHive3CatalogToHiveConverter() {
-    when(HiveVersionInfo.getShortVersion()).thenReturn(HIVE_3_VERSION);
-    CatalogToHiveConverter catalogToHiveConverter = CatalogToHiveConverterFactory.getCatalogToHiveConverter();
-    assertTrue(Hive3CatalogToHiveConverter.class.isInstance(catalogToHiveConverter));
   }
 }

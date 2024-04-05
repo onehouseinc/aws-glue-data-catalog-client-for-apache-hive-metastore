@@ -10,6 +10,7 @@ import com.amazonaws.services.glue.model.PartitionError;
 import com.google.common.collect.Lists;
 
 import org.apache.hadoop.hive.metastore.api.AlreadyExistsException;
+import org.apache.hadoop.hive.metastore.api.MetaException;
 import org.apache.log4j.Logger;
 import org.apache.thrift.TException;
 import org.apache.commons.lang3.StringUtils;
@@ -27,16 +28,16 @@ public final class BatchCreatePartitionsHelper {
   private final AWSGlueMetastore glueClient;
   private final String databaseName;
   private final String tableName;
+  private final String catalogId;
   private final List<Partition> partitions;
   private final boolean ifNotExists;
   private Map<PartitionKey, Partition> partitionMap;
   private List<Partition> partitionsFailed;
   private TException firstTException;
-  private String catalogId;
   private CatalogToHiveConverter catalogToHiveConverter;
 
   public BatchCreatePartitionsHelper(AWSGlueMetastore glueClient, String databaseName, String tableName, String catalogId,
-                                     List<Partition> partitions, boolean ifNotExists) {
+                                     List<Partition> partitions, boolean ifNotExists) throws MetaException {
     this.glueClient = glueClient;
     this.databaseName = databaseName;
     this.tableName = tableName;

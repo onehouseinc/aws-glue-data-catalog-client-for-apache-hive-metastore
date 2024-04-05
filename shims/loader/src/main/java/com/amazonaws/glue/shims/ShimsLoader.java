@@ -20,8 +20,6 @@ public final class ShimsLoader {
     try {
       if (AwsGlueSparkHiveShims.supportsVersion(hiveVersion)) {
           return AwsGlueSparkHiveShims.class.newInstance();
-      } else if (AwsGlueHive3Shims.supportsVersion(hiveVersion)) {
-        return AwsGlueHive3Shims.class.newInstance();
       }
     } catch (InstantiationException | IllegalAccessException e) {
       throw new RuntimeException("unable to get instance of Hive shim class for " + hiveVersion);

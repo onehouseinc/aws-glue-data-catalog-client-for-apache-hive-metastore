@@ -104,7 +104,6 @@
                                 <includes>
                                     <include>com.amazonaws.glue:aws-glue-datacatalog-client-common</include>
                                     <include>com.amazonaws.glue:shims-common</include>
-                                    <include>com.amazonaws.glue:hive3-shims</include>
                                     <include>com.amazonaws.glue:shims-loader</include>
                                     <include>com.amazonaws.glue:spark-hive-shims</include>
                                 </includes>

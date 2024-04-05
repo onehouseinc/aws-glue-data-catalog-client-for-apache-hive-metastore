@@ -17,8 +17,7 @@ public class AWSGlueDataCatalogHiveClientFactory implements HiveMetaStoreClientF
       boolean allowEmbedded,
       ConcurrentHashMap<String, Long> concurrentHashMap
   ) throws MetaException {
-    AWSCatalogMetastoreClient client = new AWSCatalogMetastoreClient(conf, hookLoader);
-    return client;
+    return new AWSCatalogMetastoreClient(conf, hookLoader);
   }
 
 }
