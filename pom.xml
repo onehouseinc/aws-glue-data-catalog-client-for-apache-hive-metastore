@@ -17,7 +17,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <guava.version>28.2-jre</guava.version>
+    <guava.version>33.1.0-jre</guava.version>
     <spark-hive.version>2.3.10-SNAPSHOT</spark-hive.version>
     <aws.sdk.version>1.12.31</aws.sdk.version>
     <junit.version>4.11</junit.version>
