@@ -40,6 +40,36 @@
             <artifactId>httpclient</artifactId>
             <version>${httpclient.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>${httpcore.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
+            <version>${aws.sdk.version}</version>
+        </dependency>
 
         <dependency> <!-- reuse src/test/java dependencies -->
             <groupId>com.amazonaws.glue</groupId>
@@ -107,6 +137,17 @@
                                     <include>com.amazonaws.glue:hive3-shims</include>
                                     <include>com.amazonaws.glue:shims-loader</include>
                                     <include>com.amazonaws.glue:spark-hive-shims</include>
+
+                                    <include>org.apache.httpcomponents:httpclient</include>
+                                    <include>org.apache.httpcomponents:httpcore</include>
+                                    <include>com.fasterxml.jackson.core:jackson-databind</include>
+                                    <include>com.fasterxml.jackson.core:jackson-core</include>
+                                    <include>com.fasterxml.jackson.core:jackson-annotations</include>
+
+                                    <include>com.amazonaws:aws-java-sdk-core</include>
+                                    <include>com.amazonaws:aws-java-sdk-glue</include>
+                                    <include>com.amazonaws:aws-java-sdk-s3</include>
+                                    <include>com.amazonaws:aws-java-sdk-dynamodb</include>
                                 </includes>
                             </artifactSet>
                         </configuration>
