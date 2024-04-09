@@ -60,7 +60,7 @@ public class AWSGlueMultipleCatalogDecorator extends AWSGlueDecoratorBase {
     // We're not importing this from Hive's Warehouse class as the package name is changed between Hive 1.x and Hive 3.x
     private static final String DEFAULT_DATABASE_NAME = "default";
 
-    private String catalogSeparator;
+    private final String catalogSeparator;
 
     public AWSGlueMultipleCatalogDecorator(AWSGlue awsGlueToBeDecorated, String catalogSeparator) {
         super(awsGlueToBeDecorated);
