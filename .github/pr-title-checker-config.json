@@ -1,0 +1,15 @@
+{
+  "LABEL": {
+    "name": "All PRs should have clickup task ID mentioned at the start in PR title e.g. [ONHS-1234] Change for ..  ",
+    "color": "EEEEEE"
+  },
+  "CHECKS": {
+    "prefixes": ["[ONHS-", "ONHS-", "[AUDIT-", "AUDIT-", "ENG-", "[ENG-"],
+    "ignoreLabels" : ["dont-check-PRs-with-this-label"]
+  },
+  "MESSAGES": {
+    "success": "All OK",
+    "failure": "Failing CI test. Check details here https://app.clickup.com/18029943/v/dc/h67bq-7724/h67bq-112201",
+    "notice": ""
+  }
+}

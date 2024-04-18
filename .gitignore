@@ -24,3 +24,5 @@
 /.idea/
 /shims/target/
 /target/
+
+**/.DS_Store
