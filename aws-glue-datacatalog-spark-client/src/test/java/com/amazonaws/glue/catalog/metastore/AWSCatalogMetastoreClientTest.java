@@ -50,6 +50,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hive.common.ObjectPair;
@@ -1263,8 +1264,16 @@ public class AWSCatalogMetastoreClientTest {
     String databaseName = "database-name";
     String tableName = "table-name";
     GlueMetastoreClientDelegate mockDelegate = mock(GlueMetastoreClientDelegate.class);
-    AWSCatalogMetastoreClient metaClient = new AWSCatalogMetastoreClient.Builder().withClientFactory(clientFactory)
-            .withWarehouse(wh).withGlueMetastoreClientDelegate(mockDelegate).createDefaults(false).withHiveConf(conf).build();
+
+    AWSGlueMetastore glueMetastore = mock(AWSGlueMetastore.class);
+    AWSGlueMetastoreFactory glueMetastoreFactory = mock(AWSGlueMetastoreFactory.class);
+    when(glueMetastoreFactory.newMetastore(any(Configuration.class))).thenReturn(glueMetastore);
+
+    AWSCatalogMetastoreClient metaClient = new AWSCatalogMetastoreClient.Builder()
+            .withClientFactory(clientFactory)
+            .withMetastoreFactory(glueMetastoreFactory)
+            .withWarehouse(wh)
+            .createDefaults(false).withHiveConf(conf).build();
     metaClient = spy(metaClient);
 
     metaClient.alter_table(databaseName, tableName, testTable, true);

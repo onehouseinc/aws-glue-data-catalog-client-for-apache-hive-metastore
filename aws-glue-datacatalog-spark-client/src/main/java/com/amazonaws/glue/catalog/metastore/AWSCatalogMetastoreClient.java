@@ -162,7 +162,6 @@ public class AWSCatalogMetastoreClient implements IMetaStoreClient {
     private AWSGlueMetastoreFactory metastoreFactory;
     private boolean createDefaults = true;
     private String catalogId;
-    private GlueMetastoreClientDelegate glueMetastoreClientDelegate;
 
     public Builder withHiveConf(HiveConf conf) {
       this.conf = conf;
@@ -181,11 +180,6 @@ public class AWSCatalogMetastoreClient implements IMetaStoreClient {
 
     public Builder withCatalogId(String catalogId) {
       this.catalogId = catalogId;
-      return this;
-    }
-
-    public Builder withGlueMetastoreClientDelegate(GlueMetastoreClientDelegate clientDelegate) {
-      this.glueMetastoreClientDelegate = clientDelegate;
       return this;
     }
 

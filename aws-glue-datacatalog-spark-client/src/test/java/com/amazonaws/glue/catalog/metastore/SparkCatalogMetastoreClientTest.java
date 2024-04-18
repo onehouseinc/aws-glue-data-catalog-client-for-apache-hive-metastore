@@ -4,9 +4,9 @@ import com.amazonaws.glue.catalog.util.TestObjects;
 import com.amazonaws.services.glue.AWSGlue;
 import com.amazonaws.services.glue.model.Database;
 import com.amazonaws.services.glue.model.EntityNotFoundException;
-import com.amazonaws.services.glue.model.GetUserDefinedFunctionRequest;
 import com.amazonaws.services.glue.model.UserDefinedFunction;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hive.conf.HiveConf;
 import org.apache.hadoop.hive.metastore.Warehouse;
 import org.apache.hadoop.hive.metastore.api.NoSuchObjectException;
@@ -23,10 +23,12 @@ import static org.mockito.Mockito.when;
 public class SparkCatalogMetastoreClientTest {
 
   private AWSGlue glueClient;
-  private AWSCatalogMetastoreClient metastoreClient;
+  private GlueClientFactory glueClientFactory;
   private Warehouse wh;
   private HiveConf conf;
-  private GlueClientFactory clientFactory;
+  private AWSGlueMetastoreFactory glueMetastoreFactory;
+  private AWSGlueMetastore glueMetastore;
+  private AWSCatalogMetastoreClient metastoreClient;
 
   // Test objects
   private Database testDB;
@@ -37,15 +39,25 @@ public class SparkCatalogMetastoreClientTest {
 
   @Before
   public void setUp() throws Exception{
+    wh = mock(Warehouse.class);
+
     testDB = TestObjects.getTestDatabase();
     testFunction = TestObjects.getCatalogTestFunction();
 
     conf = spy(new HiveConf());
     glueClient = mock(AWSGlue.class);
-    clientFactory = mock(GlueClientFactory.class);
-    when(clientFactory.newClient()).thenReturn(glueClient);
-    metastoreClient = new AWSCatalogMetastoreClient.Builder().withClientFactory(clientFactory)
-      .withWarehouse(wh).createDefaults(false).withHiveConf(conf).build();
+
+    glueClientFactory = mock(GlueClientFactory.class);
+    when(glueClientFactory.newClient()).thenReturn(glueClient);
+
+    glueMetastore = mock(AWSGlueMetastore.class);
+    glueMetastoreFactory = mock(AWSGlueMetastoreFactory.class);
+    when(glueMetastoreFactory.newMetastore(any(Configuration.class))).thenReturn(glueMetastore);
+
+    metastoreClient = new AWSCatalogMetastoreClient.Builder()
+        .withClientFactory(glueClientFactory)
+        .withMetastoreFactory(glueMetastoreFactory)
+        .withWarehouse(wh).createDefaults(false).withHiveConf(conf).build();
   }
 
   @Test
@@ -53,7 +65,7 @@ public class SparkCatalogMetastoreClientTest {
     expectedException.expect(NoSuchObjectException.class);
     expectedException.expectMessage(testFunction.getFunctionName() + " does not exist");
 
-    when(glueClient.getUserDefinedFunction(any(GetUserDefinedFunctionRequest.class)))
+    when(glueMetastore.getUserDefinedFunction(testDB.getName(), testFunction.getFunctionName()))
       .thenThrow(new EntityNotFoundException(""));
     metastoreClient.getFunction(testDB.getName(), testFunction.getFunctionName());
   }
