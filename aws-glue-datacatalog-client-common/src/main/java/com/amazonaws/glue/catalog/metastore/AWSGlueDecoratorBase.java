@@ -44,8 +44,18 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     }
 
     @Override
+    public BatchGetBlueprintsResult batchGetBlueprints(BatchGetBlueprintsRequest batchGetBlueprintsRequest) {
+        return decoratedAwsGlue.batchGetBlueprints(batchGetBlueprintsRequest);
+    }
+
+    @Override
     public BatchGetCrawlersResult batchGetCrawlers(BatchGetCrawlersRequest batchGetCrawlersRequest) {
         return decoratedAwsGlue.batchGetCrawlers(batchGetCrawlersRequest);
+    }
+
+    @Override
+    public BatchGetCustomEntityTypesResult batchGetCustomEntityTypes(BatchGetCustomEntityTypesRequest batchGetCustomEntityTypesRequest) {
+        return decoratedAwsGlue.batchGetCustomEntityTypes(batchGetCustomEntityTypesRequest);
     }
 
     @Override
@@ -89,8 +99,18 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     }
 
     @Override
+    public CancelStatementResult cancelStatement(CancelStatementRequest cancelStatementRequest) {
+        return decoratedAwsGlue.cancelStatement(cancelStatementRequest);
+    }
+
+    @Override
     public CheckSchemaVersionValidityResult checkSchemaVersionValidity(CheckSchemaVersionValidityRequest checkSchemaVersionValidityRequest) {
-        return null;
+        return decoratedAwsGlue.checkSchemaVersionValidity(checkSchemaVersionValidityRequest);
+    }
+
+    @Override
+    public CreateBlueprintResult createBlueprint(CreateBlueprintRequest createBlueprintRequest) {
+        return decoratedAwsGlue.createBlueprint(createBlueprintRequest);
     }
 
     @Override
@@ -106,6 +126,11 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     @Override
     public CreateCrawlerResult createCrawler(CreateCrawlerRequest createCrawlerRequest) {
         return decoratedAwsGlue.createCrawler(createCrawlerRequest);
+    }
+
+    @Override
+    public CreateCustomEntityTypeResult createCustomEntityType(CreateCustomEntityTypeRequest createCustomEntityTypeRequest) {
+        return decoratedAwsGlue.createCustomEntityType(createCustomEntityTypeRequest);
     }
 
     @Override
@@ -135,17 +160,17 @@ public class AWSGlueDecoratorBase implements AWSGlue {
 
     @Override
     public CreatePartitionIndexResult createPartitionIndex(CreatePartitionIndexRequest createPartitionIndexRequest) {
-        return null;
+        return decoratedAwsGlue.createPartitionIndex(createPartitionIndexRequest);
     }
 
     @Override
     public CreateRegistryResult createRegistry(CreateRegistryRequest createRegistryRequest) {
-        return null;
+        return decoratedAwsGlue.createRegistry(createRegistryRequest);
     }
 
     @Override
     public CreateSchemaResult createSchema(CreateSchemaRequest createSchemaRequest) {
-        return null;
+        return decoratedAwsGlue.createSchema(createSchemaRequest);
     }
 
     @Override
@@ -156,6 +181,11 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     @Override
     public CreateSecurityConfigurationResult createSecurityConfiguration(CreateSecurityConfigurationRequest createSecurityConfigurationRequest) {
         return decoratedAwsGlue.createSecurityConfiguration(createSecurityConfigurationRequest);
+    }
+
+    @Override
+    public CreateSessionResult createSession(CreateSessionRequest createSessionRequest) {
+        return decoratedAwsGlue.createSession(createSessionRequest);
     }
 
     @Override
@@ -179,6 +209,11 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     }
 
     @Override
+    public DeleteBlueprintResult deleteBlueprint(DeleteBlueprintRequest deleteBlueprintRequest) {
+        return decoratedAwsGlue.deleteBlueprint(deleteBlueprintRequest);
+    }
+
+    @Override
     public DeleteClassifierResult deleteClassifier(DeleteClassifierRequest deleteClassifierRequest) {
         return decoratedAwsGlue.deleteClassifier(deleteClassifierRequest);
     }
@@ -191,6 +226,11 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     @Override
     public DeleteCrawlerResult deleteCrawler(DeleteCrawlerRequest deleteCrawlerRequest) {
         return decoratedAwsGlue.deleteCrawler(deleteCrawlerRequest);
+    }
+
+    @Override
+    public DeleteCustomEntityTypeResult deleteCustomEntityType(DeleteCustomEntityTypeRequest deleteCustomEntityTypeRequest) {
+        return decoratedAwsGlue.deleteCustomEntityType(deleteCustomEntityTypeRequest);
     }
 
     @Override
@@ -220,12 +260,12 @@ public class AWSGlueDecoratorBase implements AWSGlue {
 
     @Override
     public DeletePartitionIndexResult deletePartitionIndex(DeletePartitionIndexRequest deletePartitionIndexRequest) {
-        return null;
+        return decoratedAwsGlue.deletePartitionIndex(deletePartitionIndexRequest);
     }
 
     @Override
     public DeleteRegistryResult deleteRegistry(DeleteRegistryRequest deleteRegistryRequest) {
-        return null;
+        return decoratedAwsGlue.deleteRegistry(deleteRegistryRequest);
     }
 
     @Override
@@ -235,17 +275,22 @@ public class AWSGlueDecoratorBase implements AWSGlue {
 
     @Override
     public DeleteSchemaResult deleteSchema(DeleteSchemaRequest deleteSchemaRequest) {
-        return null;
+        return decoratedAwsGlue.deleteSchema(deleteSchemaRequest);
     }
 
     @Override
     public DeleteSchemaVersionsResult deleteSchemaVersions(DeleteSchemaVersionsRequest deleteSchemaVersionsRequest) {
-        return null;
+        return decoratedAwsGlue.deleteSchemaVersions(deleteSchemaVersionsRequest);
     }
 
     @Override
     public DeleteSecurityConfigurationResult deleteSecurityConfiguration(DeleteSecurityConfigurationRequest deleteSecurityConfigurationRequest) {
         return decoratedAwsGlue.deleteSecurityConfiguration(deleteSecurityConfigurationRequest);
+    }
+
+    @Override
+    public DeleteSessionResult deleteSession(DeleteSessionRequest deleteSessionRequest) {
+        return decoratedAwsGlue.deleteSession(deleteSessionRequest);
     }
 
     @Override
@@ -271,6 +316,21 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     @Override
     public DeleteWorkflowResult deleteWorkflow(DeleteWorkflowRequest deleteWorkflowRequest) {
         return decoratedAwsGlue.deleteWorkflow(deleteWorkflowRequest);
+    }
+
+    @Override
+    public GetBlueprintResult getBlueprint(GetBlueprintRequest getBlueprintRequest) {
+        return decoratedAwsGlue.getBlueprint(getBlueprintRequest);
+    }
+
+    @Override
+    public GetBlueprintRunResult getBlueprintRun(GetBlueprintRunRequest getBlueprintRunRequest) {
+        return decoratedAwsGlue.getBlueprintRun(getBlueprintRunRequest);
+    }
+
+    @Override
+    public GetBlueprintRunsResult getBlueprintRuns(GetBlueprintRunsRequest getBlueprintRunsRequest) {
+        return decoratedAwsGlue.getBlueprintRuns(getBlueprintRunsRequest);
     }
 
     @Override
@@ -311,6 +371,11 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     @Override
     public GetCrawlersResult getCrawlers(GetCrawlersRequest getCrawlersRequest) {
         return decoratedAwsGlue.getCrawlers(getCrawlersRequest);
+    }
+
+    @Override
+    public GetCustomEntityTypeResult getCustomEntityType(GetCustomEntityTypeRequest getCustomEntityTypeRequest) {
+        return decoratedAwsGlue.getCustomEntityType(getCustomEntityTypeRequest);
     }
 
     @Override
@@ -415,7 +480,7 @@ public class AWSGlueDecoratorBase implements AWSGlue {
 
     @Override
     public GetRegistryResult getRegistry(GetRegistryRequest getRegistryRequest) {
-        return null;
+        return decoratedAwsGlue.getRegistry(getRegistryRequest);
     }
 
     @Override
@@ -425,22 +490,22 @@ public class AWSGlueDecoratorBase implements AWSGlue {
 
     @Override
     public GetSchemaResult getSchema(GetSchemaRequest getSchemaRequest) {
-        return null;
+        return decoratedAwsGlue.getSchema(getSchemaRequest);
     }
 
     @Override
     public GetSchemaByDefinitionResult getSchemaByDefinition(GetSchemaByDefinitionRequest getSchemaByDefinitionRequest) {
-        return null;
+        return decoratedAwsGlue.getSchemaByDefinition(getSchemaByDefinitionRequest);
     }
 
     @Override
     public GetSchemaVersionResult getSchemaVersion(GetSchemaVersionRequest getSchemaVersionRequest) {
-        return null;
+        return decoratedAwsGlue.getSchemaVersion(getSchemaVersionRequest);
     }
 
     @Override
     public GetSchemaVersionsDiffResult getSchemaVersionsDiff(GetSchemaVersionsDiffRequest getSchemaVersionsDiffRequest) {
-        return null;
+        return decoratedAwsGlue.getSchemaVersionsDiff(getSchemaVersionsDiffRequest);
     }
 
     @Override
@@ -451,6 +516,16 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     @Override
     public GetSecurityConfigurationsResult getSecurityConfigurations(GetSecurityConfigurationsRequest getSecurityConfigurationsRequest) {
         return decoratedAwsGlue.getSecurityConfigurations(getSecurityConfigurationsRequest);
+    }
+
+    @Override
+    public GetSessionResult getSession(GetSessionRequest getSessionRequest) {
+        return decoratedAwsGlue.getSession(getSessionRequest);
+    }
+
+    @Override
+    public GetStatementResult getStatement(GetStatementRequest getStatementRequest) {
+        return decoratedAwsGlue.getStatement(getStatementRequest);
     }
 
     @Override
@@ -489,6 +564,21 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     }
 
     @Override
+    public GetUnfilteredPartitionMetadataResult getUnfilteredPartitionMetadata(GetUnfilteredPartitionMetadataRequest getUnfilteredPartitionMetadataRequest) {
+        return decoratedAwsGlue.getUnfilteredPartitionMetadata(getUnfilteredPartitionMetadataRequest);
+    }
+
+    @Override
+    public GetUnfilteredPartitionsMetadataResult getUnfilteredPartitionsMetadata(GetUnfilteredPartitionsMetadataRequest getUnfilteredPartitionsMetadataRequest) {
+        return decoratedAwsGlue.getUnfilteredPartitionsMetadata(getUnfilteredPartitionsMetadataRequest);
+    }
+
+    @Override
+    public GetUnfilteredTableMetadataResult getUnfilteredTableMetadata(GetUnfilteredTableMetadataRequest getUnfilteredTableMetadataRequest) {
+        return decoratedAwsGlue.getUnfilteredTableMetadata(getUnfilteredTableMetadataRequest);
+    }
+
+    @Override
     public GetUserDefinedFunctionResult getUserDefinedFunction(GetUserDefinedFunctionRequest getUserDefinedFunctionRequest) {
         return decoratedAwsGlue.getUserDefinedFunction(getUserDefinedFunctionRequest);
     }
@@ -524,8 +614,23 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     }
 
     @Override
+    public ListBlueprintsResult listBlueprints(ListBlueprintsRequest listBlueprintsRequest) {
+        return decoratedAwsGlue.listBlueprints(listBlueprintsRequest);
+    }
+
+    @Override
     public ListCrawlersResult listCrawlers(ListCrawlersRequest listCrawlersRequest) {
         return decoratedAwsGlue.listCrawlers(listCrawlersRequest);
+    }
+
+    @Override
+    public ListCrawlsResult listCrawls(ListCrawlsRequest listCrawlsRequest) {
+        return decoratedAwsGlue.listCrawls(listCrawlsRequest);
+    }
+
+    @Override
+    public ListCustomEntityTypesResult listCustomEntityTypes(ListCustomEntityTypesRequest listCustomEntityTypesRequest) {
+        return decoratedAwsGlue.listCustomEntityTypes(listCustomEntityTypesRequest);
     }
 
     @Override
@@ -545,17 +650,27 @@ public class AWSGlueDecoratorBase implements AWSGlue {
 
     @Override
     public ListRegistriesResult listRegistries(ListRegistriesRequest listRegistriesRequest) {
-        return null;
+        return decoratedAwsGlue.listRegistries(listRegistriesRequest);
     }
 
     @Override
     public ListSchemaVersionsResult listSchemaVersions(ListSchemaVersionsRequest listSchemaVersionsRequest) {
-        return null;
+        return decoratedAwsGlue.listSchemaVersions(listSchemaVersionsRequest);
     }
 
     @Override
     public ListSchemasResult listSchemas(ListSchemasRequest listSchemasRequest) {
-        return null;
+        return decoratedAwsGlue.listSchemas(listSchemasRequest);
+    }
+
+    @Override
+    public ListSessionsResult listSessions(ListSessionsRequest listSessionsRequest) {
+        return decoratedAwsGlue.listSessions(listSessionsRequest);
+    }
+
+    @Override
+    public ListStatementsResult listStatements(ListStatementsRequest listStatementsRequest) {
+        return decoratedAwsGlue.listStatements(listStatementsRequest);
     }
 
     @Override
@@ -580,7 +695,7 @@ public class AWSGlueDecoratorBase implements AWSGlue {
 
     @Override
     public PutSchemaVersionMetadataResult putSchemaVersionMetadata(PutSchemaVersionMetadataRequest putSchemaVersionMetadataRequest) {
-        return null;
+        return decoratedAwsGlue.putSchemaVersionMetadata(putSchemaVersionMetadataRequest);
     }
 
     @Override
@@ -590,17 +705,17 @@ public class AWSGlueDecoratorBase implements AWSGlue {
 
     @Override
     public QuerySchemaVersionMetadataResult querySchemaVersionMetadata(QuerySchemaVersionMetadataRequest querySchemaVersionMetadataRequest) {
-        return null;
+        return decoratedAwsGlue.querySchemaVersionMetadata(querySchemaVersionMetadataRequest);
     }
 
     @Override
     public RegisterSchemaVersionResult registerSchemaVersion(RegisterSchemaVersionRequest registerSchemaVersionRequest) {
-        return null;
+        return decoratedAwsGlue.registerSchemaVersion(registerSchemaVersionRequest);
     }
 
     @Override
     public RemoveSchemaVersionMetadataResult removeSchemaVersionMetadata(RemoveSchemaVersionMetadataRequest removeSchemaVersionMetadataRequest) {
-        return null;
+        return decoratedAwsGlue.removeSchemaVersionMetadata(removeSchemaVersionMetadataRequest);
     }
 
     @Override
@@ -611,6 +726,11 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     @Override
     public SearchTablesResult searchTables(SearchTablesRequest searchTablesRequest) {
         return decoratedAwsGlue.searchTables(searchTablesRequest);
+    }
+
+    @Override
+    public StartBlueprintRunResult startBlueprintRun(StartBlueprintRunRequest startBlueprintRunRequest) {
+        return decoratedAwsGlue.startBlueprintRun(startBlueprintRunRequest);
     }
 
     @Override
@@ -669,6 +789,11 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     }
 
     @Override
+    public StopSessionResult stopSession(StopSessionRequest stopSessionRequest) {
+        return decoratedAwsGlue.stopSession(stopSessionRequest);
+    }
+
+    @Override
     public StopTriggerResult stopTrigger(StopTriggerRequest stopTriggerRequest) {
         return decoratedAwsGlue.stopTrigger(stopTriggerRequest);
     }
@@ -686,6 +811,11 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     @Override
     public UntagResourceResult untagResource(UntagResourceRequest untagResourceRequest) {
         return decoratedAwsGlue.untagResource(untagResourceRequest);
+    }
+
+    @Override
+    public UpdateBlueprintResult updateBlueprint(UpdateBlueprintRequest updateBlueprintRequest) {
+        return decoratedAwsGlue.updateBlueprint(updateBlueprintRequest);
     }
 
     @Override
@@ -735,12 +865,12 @@ public class AWSGlueDecoratorBase implements AWSGlue {
 
     @Override
     public UpdateRegistryResult updateRegistry(UpdateRegistryRequest updateRegistryRequest) {
-        return null;
+        return decoratedAwsGlue.updateRegistry(updateRegistryRequest);
     }
 
     @Override
     public UpdateSchemaResult updateSchema(UpdateSchemaRequest updateSchemaRequest) {
-        return null;
+        return decoratedAwsGlue.updateSchema(updateSchemaRequest);
     }
 
     @Override
@@ -773,7 +903,6 @@ public class AWSGlueDecoratorBase implements AWSGlue {
         return decoratedAwsGlue.getCachedResponseMetadata(amazonWebServiceRequest);
     }
 
- 
     @Override
     public UpdateColumnStatisticsForTableResult updateColumnStatisticsForTable(UpdateColumnStatisticsForTableRequest updateColumnStatisticsForTableRequest) {
         return decoratedAwsGlue.updateColumnStatisticsForTable(updateColumnStatisticsForTableRequest);
@@ -788,7 +917,12 @@ public class AWSGlueDecoratorBase implements AWSGlue {
     public ResumeWorkflowRunResult resumeWorkflowRun(ResumeWorkflowRunRequest resumeWorkflowRunRequest) {
         return decoratedAwsGlue.resumeWorkflowRun(resumeWorkflowRunRequest);
     }
- 
+
+    @Override
+    public RunStatementResult runStatement(RunStatementRequest runStatementRequest) {
+        return decoratedAwsGlue.runStatement(runStatementRequest);
+    }
+
     @Override
     public GetResourcePoliciesResult getResourcePolicies(GetResourcePoliciesRequest getResourcePoliciesRequest) {
         return decoratedAwsGlue.getResourcePolicies(getResourcePoliciesRequest);
