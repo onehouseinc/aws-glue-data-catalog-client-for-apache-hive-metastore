@@ -6,6 +6,9 @@ concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: ${{ !contains(github.ref, 'main') }}
 
+env:
+  AWS: "aws"
+
 jobs:
   build:
     runs-on: ubuntu-latest
