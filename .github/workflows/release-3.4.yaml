@@ -1,0 +1,35 @@
+name: Release 3.4
+
+on:
+  push:
+    tags:
+      - '3.4.*-onehouse-*'
+
+env:
+  AWS: "aws"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  generate-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Set VERSION
+        run: echo "VERSION=$(echo ${{ github.ref_name }})" >> $GITHUB_ENV
+      - name: Print Version
+        run: echo "$VERSION"
+      - name: Fail if version not set
+        if: env.VERSION == ''
+        run: exit 1
+      - id: version
+        run: echo "version=$VERSION" >> $GITHUB_OUTPUT
+  publish-jar:
+    needs: generate-version
+    uses: ./.github/workflows/publish-jar.yaml
+    secrets: inherit
+    with:
+      version: ${{needs.generate-version.outputs.version}}

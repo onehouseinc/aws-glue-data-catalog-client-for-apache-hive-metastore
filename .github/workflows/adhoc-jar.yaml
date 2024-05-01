@@ -1,0 +1,31 @@
+name: Build Adhoc Jar
+
+on:
+  pull_request_review:
+    types: [ submitted ]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  generate-version:
+    if: contains(github.event.review.body, '/push-image')
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Parse version
+        run: echo "VERSION=$(echo ${{ github.event.review.body }} | sed -e s/\\/push-image\ //)" >> $GITHUB_ENV
+      - name: Fail if adhoc image uses reserved tag or is empty
+        if: contains(env.VERSION, '-onehouse-') || env.VERSION == 'latest' || env.VERSION == ''
+        run: exit 1
+      - id: version
+        run: echo "version=$VERSION" >> $GITHUB_OUTPUT
+  publish-jar:
+    if: ${{ github.event.issue.pull_request }} && contains(github.event.comment.body, '/push-image')
+    needs: generate-version
+    uses: ./.github/workflows/publish-jar.yaml
+    secrets: inherit
+    with:
+      version: ${{needs.generate-version.outputs.version}}
