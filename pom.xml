@@ -4,7 +4,7 @@
 
   <groupId>com.amazonaws.glue</groupId>
   <artifactId>aws-glue-datacatalog-hive-client</artifactId>
-  <version>3.4.0-onehouse-0.100</version>
+  <version>3.4.0-onehouse-0.01</version>
     <modules>
       <module>aws-glue-datacatalog-client-common</module>
       <module>aws-glue-datacatalog-spark-client</module>
@@ -44,7 +44,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <guava.version>33.1.0-jre</guava.version>
-    <spark-hive.version>2.3.10-onehouse-0.100</spark-hive.version>
+    <spark-hive.version>2.3.10-onehouse-0.01</spark-hive.version>
     <aws.sdk.version>1.12.262</aws.sdk.version>
     <junit.version>4.11</junit.version>
     <mockito.version>1.10.19</mockito.version>
